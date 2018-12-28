@@ -9,6 +9,7 @@
   <p>
     Today is {{date}}
   </p>
+  <img style="width:200px" src="/images/puppy.jpg">
 </div>
 </body>
 </html>
