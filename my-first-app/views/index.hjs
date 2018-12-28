@@ -9,7 +9,15 @@
   <p>
     Today is {{date}}
   </p>
-  <img style="width:200px" src="/images/puppy.jpg">
+  <ol>
+    {{#profiles}}
+      <li>  {{name}}, {{city}},
+            {{#profession}}
+                  profession:{{profession}}
+            {{/profession}}
+          </li>
+    {{/profiles}}
+  </ol>
 </div>
 </body>
 </html>
