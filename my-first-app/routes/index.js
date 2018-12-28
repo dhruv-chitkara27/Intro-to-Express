@@ -2,7 +2,11 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/',(req,res,next) => {
-  res.render('index',null)
+  const data = {
+    name: 'Index',
+    date: 'Dec 28, 2018'
+  }
+  res.render('index',data)
 })
 
 router.get('/json',(req,res,next) => {

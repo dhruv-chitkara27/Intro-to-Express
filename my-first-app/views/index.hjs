@@ -1,6 +1,14 @@
 <html>
-<head></head>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" href="/css/style.css" >
+</head>
 <body>
-  <h1>This is the index Template</h1>
+  <div class="container">
+  <h1>This is the {{name}} Template</h1>
+  <p>
+    Today is {{date}}
+  </p>
+</div>
 </body>
 </html>
