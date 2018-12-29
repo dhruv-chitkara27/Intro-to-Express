@@ -1,22 +1,50 @@
 const express = require('express')
 const router = express.Router()
+let user = null
+
+const profiles = [
+  {name: 'Dhruv', city: 'Chandigarh', profession: 'Engineer'},
+  {name: 'Bhamti', city: 'Chandigarh', profession: 'Engineer'},
+  {name: 'Charvi', city: 'Chandigarh', profession: 'Engineer'}
+]
 
 router.get('/',(req,res,next) => {
+  console.log('Timestamp: ' + req.timestamp)
   const data = {
     name: 'Index',
-    date: 'Dec 28, 2018',
-    profiles: [
-      {name: 'Dhruv', city: 'Chandigarh', profession: 'Engineer'},
-      {name: 'Bhamti', city: 'Chandigarh', profession: 'Engineer'},
-      {name: 'Charvi', city: 'Chandigarh', profession: 'Engineer'},
-      {name: 'Jatin', city: 'Chandigarh'}
-    ]
+    date: req.timestamp,
+    profiles: profiles,
+    user: user
   }
   res.render('index',data)
 })
 
+router.get('/login', (req,res,next) => {
+  res.render('login', null)
+})
+
+router.post('/login', (req,res,next) => {
+      const username = req.body.username
+      const password = req.body.password
+
+      if(password === '123'){
+        user = {username: username}
+        res.redirect('/')
+        return
+      }
+      res.json({
+        data: 'failed login'
+      })
+})
+
+router.post('/join', (req,res,next) => {
+  const body = req.body
+  profiles.push(body)
+  res.redirect('/')
+})
+
 router.get('/json',(req,res,next) => {
-    const data = {name:'Dhruv',location:'Sydney'}
+    const data = {name:'Dhruv',location:'Sydney', date:req.timestamp}
     res.json(data)
 })
 

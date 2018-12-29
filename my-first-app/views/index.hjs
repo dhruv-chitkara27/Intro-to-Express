@@ -7,7 +7,10 @@
   <div class="container">
   <h1>This is the {{name}} Template</h1>
   <p>
-    Today is {{date}}
+    Today is {{date}}.
+    {{#user}}
+    My name is {{user.username}}
+    {{/user}}
   </p>
   <ol>
     {{#profiles}}
@@ -18,6 +21,13 @@
           </li>
     {{/profiles}}
   </ol>
+
+  <form method="post" action="/join">
+    <input type="text" name="name" placeholder="Name" /><br />
+    <input type="text" name="city" placeholder="City" /><br />
+    <input type="text" name="profession" placeholder="Profession" /><br />
+    <input type="submit" value="Add Profile" />
+  </form>
 </div>
 </body>
 </html>
